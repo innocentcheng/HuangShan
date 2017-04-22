@@ -6,14 +6,14 @@
         android:id="@+id/bill_et_name"
         android:textSize="20sp"
         android:hint="明细"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/bill_et_money"
         android:textSize="20sp"
         android:hint="金额"
         android:inputType="number"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
 </LinearLayout>
