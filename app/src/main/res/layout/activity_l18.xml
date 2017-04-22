@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_l18"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.along.zhuanhang.ui.l18Activity">
+
+    <TextView
+        android:id="@+id/l18_tv_enemy"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <TextView
+
+        android:id="@+id/l18_tv_ownCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_marginTop="30dp"
+        android:onClick="playCard"
+        android:text="依次打出"
+        android:textSize="20dp"
+        android:id="@+id/l18_btn_play"
+        android:layout_gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:textSize="15sp"
+        android:id="@+id/l18_tv_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

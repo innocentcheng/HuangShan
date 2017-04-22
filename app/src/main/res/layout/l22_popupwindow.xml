@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <TextView
+        android:text="anzhuo"
+        android:typeface="sans"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:textColor="#FFF"
+        android:id="@+id/l22_popWindow_tv"
+        android:layout_width="200dp"
+        android:layout_height="20dp" />
+    <ImageView
+        android:src="@mipmap/l7image"
+        android:scaleType="centerCrop"
+        android:id="@+id/l22_popWindow_iv"
+        android:layout_width="200dp"
+        android:layout_height="150dp" />
+
+</LinearLayout>

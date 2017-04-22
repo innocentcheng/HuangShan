@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.along.zhuanhang">
+
+    <!-- 横屏android:screenOrientation="landscape" -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".bill.BillMainActivity">
+
+            <!-- android:screenOrientation="landscape" -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.l4Activity" />
+        <activity android:name=".ui.l4_text" />
+        <activity android:name=".ui.l5_b" />
+        <activity android:name=".ui.l5_a" />
+        <activity android:name=".ui.l5_text_02" />
+        <activity android:name=".ui.l5_text_03" />
+        <activity android:name=".ui.l5_text_01" />
+        <activity android:name=".ui.l6activity" />
+        <activity android:name=".ui.l2Tv" />
+        <activity android:name=".ui.l3random" />
+        <activity android:name=".ui.l1Toast" />
+        <activity android:name=".ui.l7text" />
+        <activity android:name=".ui.l7Activity" />
+        <activity android:name=".ui.l8" />
+        <activity android:name=".ui.l8text" />
+        <activity android:name=".ui.l8text02" />
+        <activity android:name=".ui.L9Thread" />
+        <activity android:name=".ui.l9text" />
+        <activity android:name=".ui.l10While" />
+        <activity android:name=".ui.l10text" />
+        <activity android:name=".ui.l11ListViewActivity" />
+        <activity android:name=".ui.l13Activity" />
+        <activity android:name=".ui.l11text" />
+        <activity android:name=".ui.l14Activity_02" />
+        <activity android:name=".ui.l15Activity" />
+        <activity android:name=".ui.l14Activity" />
+        <activity android:name=".ui.l16Activity" />
+        <activity android:name=".ui.l17Activity" />
+        <activity android:name=".ui.l18Activity" />
+        <activity android:name=".ui.l19ArrayListActivity" />
+        <activity android:name=".ui.l22PopupWindowActivity" />
+        <activity android:name=".ui.l20Andl21BaseAdapterActivity" />
+        <activity android:name=".ui.calculatorActivity" />
+        <activity android:name=".ui.l23FileActivity" />
+        <activity android:name=".ui.L25JsonActivity" />
+        <activity android:name=".ui.l28_UIActivity" />
+        <activity android:name=".ui.l29ProgressActivity" />
+        <activity android:name=".ui.l30styleActivity"></activity>
+    </application>
+
+</manifest>

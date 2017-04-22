@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_l3random"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.along.zhuanhang.ui.l3random">
+
+    <TextView
+        android:text="阿龙"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="80dp"
+        android:id="@+id/alongrd_tv"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="MC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/alongrd_tv"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/MCrd_tv"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="啊淡"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/MCrd_tv"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="21dp"
+        android:layout_marginEnd="21dp"
+        android:id="@+id/adanrd_tv"
+        android:textSize="18sp" />
+
+    <Button
+        android:text="Random"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="123dp"
+        android:id="@+id/l3_btn"
+        android:onClick="random"
+        android:textSize="14sp" />
+
+    <Button
+        android:text="下一课"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/adanrd_tv"
+        android:layout_alignEnd="@+id/adanrd_tv"
+        android:onClick="nextLv4"
+        android:id="@+id/l3_btn_nextlv" />
+</RelativeLayout>

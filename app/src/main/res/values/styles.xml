@@ -1,0 +1,21 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="l30_btn_style" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColor">#FFF</item>
+        <item name="android:background">#DD0000</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+    <style name="l30_btn_style2" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColor">#FFF</item>
+        <item name="android:background">@drawable/l28_btn_bg_selector</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+</resources>
