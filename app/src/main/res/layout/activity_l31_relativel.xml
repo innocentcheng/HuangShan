@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#3333"
+    android:layout_height="match_parent"
+    tools:context="com.along.zhuanhang.ui.l31RelativeActivity">
+    <TextView
+        android:textColor="#FFFF"
+        android:id="@+id/l31_tv_time"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        android:text="昨天 晚上11:14"
+        android:textSize="12sp"
+        android:background="#3336"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_below="@+id/l31_tv_time"
+        android:layout_marginTop="10dp"
+        android:paddingRight="35dp"
+        android:id="@+id/l31_rl_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/l31_iv_zhaomo"
+            android:src="@mipmap/l20_cost"
+            android:scaleType="center"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+        <TextView
+            android:background="@mipmap/icon_message_left"
+            android:layout_marginLeft="1dp"
+            android:layout_toRightOf="@+id/l31_iv_zhaomo"
+            android:text="安雷sapi！！雷sapi！！"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:paddingLeft="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/l31_rl_left"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:id="@+id/l31_iv_deathwings"
+            android:src="@mipmap/l20_deathwings"
+            android:scaleType="fitXY"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+        <TextView
+            android:layout_marginRight="1dp"
+            android:background="@mipmap/icon_message_right"
+            android:text="你说得对！！你说得对！！你说得对！！你说得对！！你说得对！！你说得对！！你说得对！！你说得对！！你说得对！！你说得对！！你说得对！！你说得对！！你说得对！！你说得对！！你说得对！！你说得对！！你说得对！！你说得对！！你说得对！！"
+            android:layout_toLeftOf="@+id/l31_iv_deathwings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</RelativeLayout>
