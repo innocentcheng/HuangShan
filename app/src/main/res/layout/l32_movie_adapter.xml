@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/l32_adapter_iv"
+        android:layout_width="100dp"
+        android:layout_height="146dp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="146dp">
+        <TextView
+            android:textColor="#333"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:textSize="30sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="名字"
+            android:id="@+id/l32_adapter_tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+        <TextView
+            android:id="@+id/l32_adapter_tv_year"
+            android:textColor="#787878"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:text="时间"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+    </LinearLayout>
+
+</LinearLayout>

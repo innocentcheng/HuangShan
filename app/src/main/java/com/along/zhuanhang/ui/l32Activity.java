@@ -3,11 +3,18 @@ package com.along.zhuanhang.ui;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.along.zhuanhang.R;
+import com.along.zhuanhang.ui.adapter.MovieAdapter;
 import com.along.zhuanhang.utils.Tools;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,10 +22,12 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.List;
 
 public class l32Activity extends AppCompatActivity {
     private EditText mEt;
-    private TextView mTv;
+    private ListView mLv;
+    private MovieAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,21 +38,26 @@ public class l32Activity extends AppCompatActivity {
 
     private void initView() {
         mEt = (EditText) findViewById(R.id.l32_et);
-        mTv = (TextView) findViewById(R.id.l32_tv);
+        mLv = (ListView) findViewById(R.id.l32_lv);
     }
 
     public void request(View view) {
+        final String searchKeyword = mEt.getText().toString();
         Tools.log("拿到" + mEt.getText().toString());
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     Tools.log("线程开启");
-                    final String result = requestIMDB(mEt.getText().toString());
+                    String josn = requestIMDB(searchKeyword);
+                    Tools.log("啊search:"+josn);
+                    ImdbResult imdbResult = ImdbResult.fill(new JSONObject(josn));
+                    final List<Movie> movies = Movie.fillList(imdbResult.getSearch());
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mTv.setText(result);
+                            mAdapter = new MovieAdapter(l32Activity.this,movies);
+                            mLv.setAdapter(mAdapter);
                         }
                     });
                 } catch (MalformedURLException e) {
@@ -55,10 +69,13 @@ public class l32Activity extends AppCompatActivity {
                             Tools.ToastS(l32Activity.this, "111");
                         }
                     });
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
         }).start();
     }
+
 
     private String requestIMDB(String keyword) throws IOException {
         String urlAdress = "http://www.omdbapi.com/?s=" + keyword;
