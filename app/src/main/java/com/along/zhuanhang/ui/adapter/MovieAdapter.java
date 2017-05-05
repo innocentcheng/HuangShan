@@ -28,8 +28,8 @@ import java.util.List;
  */
 
 public class MovieAdapter extends BaseAdapter {
-    private Context mContext;
-    private List<Movie> mMovieList;
+    private final Context mContext;
+    private final List<Movie> mMovieList;
     private LayoutInflater mInflater;
 
     public MovieAdapter(Context context, List<Movie> movies) {
@@ -44,7 +44,7 @@ public class MovieAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
+    public Movie getItem(int position) {
         return mMovieList.get(position);
     }
 
@@ -58,8 +58,9 @@ public class MovieAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Holder holder = new Holder();
+        final Holder holder;
         if (convertView == null) {
+            holder = new Holder();
             convertView = mInflater.inflate(R.layout.l32_movie_adapter, parent, false);
             holder.mPosterIv = (ImageView) convertView.findViewById(R.id.l32_adapter_iv);
             holder.mTitleTv = (TextView) convertView.findViewById(R.id.l32_adapter_tv_title);
@@ -74,7 +75,7 @@ public class MovieAdapter extends BaseAdapter {
         handlePoster(holder.mPosterIv,movie);
         return convertView;
     }
-    public void handlePoster (final ImageView imageView, final Movie movie){
+    private void handlePoster(final ImageView imageView, final Movie movie){
         if (movie.getmPosterBitmap() == null){
             imageView.setImageResource(R.mipmap.ic_launcher);
             final  String urlAddress = movie.getmPosterUrl();
@@ -82,7 +83,7 @@ public class MovieAdapter extends BaseAdapter {
                 @Override
                 public void run() {
                     try {
-                        Bitmap bitmap = downloadPoster(urlAddress);
+                        final Bitmap bitmap = downloadPoster(urlAddress);
                         movie.setmPosterBitmap(bitmap);
                         bindBitmap(imageView,bitmap);
                     } catch (IOException e) {
@@ -108,7 +109,7 @@ public class MovieAdapter extends BaseAdapter {
         }
     }
     private Bitmap downloadPoster(String posterUrl) throws IOException {
-      posterUrl = posterUrl.replace("300.jpg", "100.jpg");
+       posterUrl = posterUrl.replace("300.jpg", "100.jpg");
         Tools.log("圖片地址"+posterUrl);
         URL url = new URL(posterUrl);
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -117,7 +118,7 @@ public class MovieAdapter extends BaseAdapter {
         int responseCode = urlConnection.getResponseCode();
         if (responseCode == 200) {
             InputStream inputStream = null;
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             try {
                 inputStream = urlConnection.getInputStream();
                 byte[] buffer = new byte[1024];

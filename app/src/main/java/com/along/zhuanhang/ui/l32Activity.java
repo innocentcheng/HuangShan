@@ -88,11 +88,12 @@ public class l32Activity extends AppCompatActivity {
         Tools.log("" + responsCode);
         if (responsCode == 200) {
             InputStream inputStream = null;
-            String result = "";
+            String result;
             try {
                 inputStream = urlConnection.getInputStream();
                 byte[] buffer = new byte[1024];
                 int len;
+                result = "";
                 while ((len = inputStream.read(buffer)) != -1) {
                     result += new String(buffer, 0, len);
                 }
