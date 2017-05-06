@@ -1,5 +1,8 @@
 package com.along.zhuanhang.ui;
 
+import android.os.AsyncTask;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +26,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
+import java.util.Objects;
 
 public class l32Activity extends AppCompatActivity {
     private EditText mEt;
@@ -50,17 +54,17 @@ public class l32Activity extends AppCompatActivity {
                 try {
                     Tools.log("线程开启");
                     String josn = requestIMDB(searchKeyword);
-                    Tools.log("啊search:"+josn);
+                    Tools.log("啊search:" + josn);
                     ImdbResult imdbResult = ImdbResult.fill(new JSONObject(josn));
                     final List<Movie> movies = Movie.fillList(imdbResult.getSearch());
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mAdapter = new MovieAdapter(l32Activity.this,movies);
+                            mAdapter = new MovieAdapter(l32Activity.this, movies);
                             mLv.setAdapter(mAdapter);
                         }
                     });
-                } catch (MalformedURLException e) {
+                } catch (MalformedURLException | JSONException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
                     runOnUiThread(new Runnable() {
@@ -69,11 +73,55 @@ public class l32Activity extends AppCompatActivity {
                             Tools.ToastS(l32Activity.this, "111");
                         }
                     });
-                } catch (JSONException e) {
-                    e.printStackTrace();
                 }
             }
         }).start();
+    }
+
+    public void requestB(View view) {
+        final String searchKeyword = mEt.getText().toString();
+        Tools.log("拿到" + mEt.getText().toString());
+        AsyncTask<String, String, String> asyncTask = new AsyncTask<String, String, String>() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            protected String doInBackground(String... params) {
+                try {
+                    Tools.log("线程开启");
+                    String josn = requestIMDB(params[0]);
+                    Tools.log("啊search:" + josn);
+                    ImdbResult imdbResult = ImdbResult.fill(new JSONObject(josn));
+                    if (Objects.equals(imdbResult.getResponse(), "True")) {
+                        final List<Movie> movies = Movie.fillList(imdbResult.getSearch());
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mAdapter = new MovieAdapter(l32Activity.this, movies);
+                                mLv.setAdapter(mAdapter);
+                            }
+                        });
+                    } else {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                             Tools.ToastS(l32Activity.this,"未找到");
+                            }
+                        });
+                        return null;
+                    }
+                } catch (MalformedURLException | JSONException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Tools.ToastS(l32Activity.this, "111");
+                        }
+                    });
+                }
+                return null;
+            }
+        };
+        asyncTask.execute(searchKeyword);
     }
 
 
@@ -110,6 +158,6 @@ public class l32Activity extends AppCompatActivity {
                 }
             }
         }
-                    return null;
+        return null;
     }
 }

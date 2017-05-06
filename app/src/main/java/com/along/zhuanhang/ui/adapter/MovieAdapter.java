@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,18 +80,32 @@ public class MovieAdapter extends BaseAdapter {
         if (movie.getmPosterBitmap() == null){
             imageView.setImageResource(R.mipmap.ic_launcher);
             final  String urlAddress = movie.getmPosterUrl();
-            new Thread(new Runnable() {
+            AsyncTask<String,String,String> asyncTask = new AsyncTask<String, String, String>() {
                 @Override
-                public void run() {
+                protected String doInBackground(String... params) {
                     try {
                         final Bitmap bitmap = downloadPoster(urlAddress);
                         movie.setmPosterBitmap(bitmap);
                         bindBitmap(imageView,bitmap);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                   } catch (IOException e) {
+                       e.printStackTrace();
+                  }
+                    return null;
                 }
-            }).start();
+            };
+            asyncTask.execute();
+//            new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    try {
+//                        final Bitmap bitmap = downloadPoster(urlAddress);
+//                        movie.setmPosterBitmap(bitmap);
+//                        bindBitmap(imageView,bitmap);
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }).start();
         }else {
             imageView.setImageBitmap(movie.getmPosterBitmap());
         }
