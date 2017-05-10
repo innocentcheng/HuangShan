@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
-        android:onClick="requestB"
+        android:onClick="requestC"
         android:text="搜索"
         style="@style/l30_btn_style2"
         android:layout_width="match_parent"

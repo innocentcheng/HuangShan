@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.along.zhuanhang">
-    <uses-permission android:name="android.permission.INTERNET">
-    </uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <!-- 横屏android:screenOrientation="landscape" -->
     <application
         android:allowBackup="true"
@@ -58,7 +59,8 @@
         <activity android:name=".ui.l29ProgressActivity" />
         <activity android:name=".ui.l30styleActivity" />
         <activity android:name=".ui.l31RelativeActivity" />
-        <activity android:name=".bill.BillMainActivity"></activity>
+        <activity android:name=".bill.BillMainActivity" />
+        <activity android:name=".ui.l34ExceptionActivity"></activity>
     </application>
 
 </manifest>
